@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Vending Machine</h1>
+       
+        <table border="1">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="message">Welcome</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="selection" placeholder="Product No"></td>
+                <td><button id="purchase">Purchase</button></td>
+            </tr>
+            <tr>
+                <td>Product 1</td>
+                <td>Product 2</td>
+                <td>Product 3</td>
+                <td><input id="bill" placeholder="Bill Amount"></td>
+                <td><button id="insert-bill">Insert</button></td>
+            </tr>
+            <tr>
+                <td>Product 4</td>
+                <td>Product 5</td>
+                <td>Product 6</td>
+                <td><input id="coin" placeholder="Coin Amount"></td>
+                <td><button id="insert-coin">Insert</button></td>
+            </tr>
+            <tr>
+                <td>Product 8</td>
+                <td>Product 9</td>
+                <td>Product 9</td>
+                <td><input id="credit-card" placeholder="Credit Card No"></td>
+                <td><button id="swipe">Swipe</button></td>
+            </tr>
+            <tr>
+                <td id="product" colspan="3">No Product</td>
+                
+                <td><span id="change-amount">No Change</span></td>
+                <td><button id="release-change">Release Change</button></td>
+            </tr>
+        </table>
+       <script src="js/vending-machine.js"></script>
+    </body>
+</html>

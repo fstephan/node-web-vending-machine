@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      
+    </head>
+      <body>
+        <h1>Welcome</h1>
+            {{>header}}
+             {{#each machines}}
+            <div><a href="/machines/{{this.id}}">{{this.name}}</a></div>
+            {{/each}}
+        </body>
+</html>

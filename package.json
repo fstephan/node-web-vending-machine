@@ -1,0 +1,39 @@
+{
+  "name": "web-vending-machine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon node src/app.js -e js,hbs",
+    "test-unit-watch": "env-cmd -f ./config/local-test.env nodemon --exec jasmine test/unit/**/*.test.js",
+    "test-unit": "env-cmd -f ./config/local-test.env npx jasmine test/unit/**/*.test.js",
+    "test-int": "env-cmd -f ./config/local-test.env npx jasmine test/integration/**/*.test.js",
+    "test-int-watch": "env-cmd -f ./config/local-test.env nodemon --exec npx jasmine test/integration/**/*.test.js",
+    "test-db": "env-cmd -f ./config/local-test.env npx jasmine test/db/**/*.test.js",
+    "test-unit-uat": "env-cmd -f ./config/local-test.env npx cucumber-js test/unit-features/**/*.feature --import ./test/unit-features/steps --publish-quiet",
+    "test-browser-e2e": "env-cmd -f ./config/local-test.env jasmine test/browser-e2e/**/*.test.js",
+    "test-browser-uat": "env-cmd -f ./config/local-test.env npx cucumber-js test/browser-e2e-features/**/*.feature --import ./test/browser-e2e-features/steps --publish-quiet"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "http-terminator": "^3.2.0",
+    "mongodb": "^5.6.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.2.0",
+    "env-cmd": "^10.1.0",
+    "jasmine": "^5.0.2",
+    "nodemon": "^2.0.22",
+    "selenium-webdriver": "^4.10.0",
+    "supertest": "^6.3.3"
+  }
+}

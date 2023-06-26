@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        .column {
+            float: left;
+            width: 20%;
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+            width: 60px;
+        }
+        tr {
+            height:100px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>{{name}}</h1>
+    {{>header}}
+
+    <div class="row">
+        <div class="column">
+            <table border="1">
+                <tr>
+                    <td colspan="3">{{this.name}}</td>
+                </tr>
+                {{#each slots}}
+                {{#if (isNewRow @index ) }}
+                <tr>
+                {{/if}}
+                    <td>{{this.name}} Slot:{{slot @index}} Price:{{this.price}}</td>
+                {{#if (isEndRow @index)}}
+                </tr>
+                {{/if}}
+                {{/each}}
+                {{#extraCols slots}}
+                    <td></td>
+                 {{/extraCols}}
+                 {{#if (isInRow slots)}}
+                    </tr>
+                 {{/if}}
+                 {{#extraRows slots}}
+                    <tr><td></td><td></td><td></td></tr>
+                 {{/extraRows}}
+               
+                <tr>
+                    <td id="product" colspan="3">No Product</td>
+                </tr>
+            </table>
+        </div>
+        <div class="column">
+            <table border="1">
+                <tr>
+                    <td><span id="message">Welcome</span></td>
+                    <td><a href="/machines/{{this.id}}/admin">Admin</a></td>
+                </tr>
+                <tr>
+                    <td><input id="selection" placeholder="Product No"></td>
+                    <td><button id="purchase">Purchase</button></td>
+                </tr>
+                <tr>
+                    <td><input id="bill" placeholder="Bill Amount"></td>
+                    <td><button id="insert-bill">Insert</button></td>
+                </tr>
+                <tr>
+                    <td><input id="coin" placeholder="Coin Amount"></td>
+                    <td><button id="insert-coin">Insert</button></td>
+                </tr>
+                <tr>
+                    <td><input id="credit-card" placeholder="Credit Card No"></td>
+                    <td><button id="swipe">Swipe</button></td>
+                </tr>
+                <tr>
+                    <td><span id="change-amount">No Change</span></td>
+                    <td><button id="release-change">Release Change</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script type="application/javascript" src="../js/vending-machine.js"></script>
+</body>
+
+</html>

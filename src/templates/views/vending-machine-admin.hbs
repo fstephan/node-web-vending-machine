@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Create</h1>
+    {{>header}}
+    <form id="vending-form">
+        <input id="vending-machine-name" name="name" type="text" placeholder="Enter name" value="{{this.name}}">
+        <input id="vending-machine-slots" name="numSlots" type="text" placeholder="Enter number of slots"
+            value="{{this.slots.length}}">
+        <button id="vending-machine-save">Save</button>
+    </form>
+    <Label>Cash<div id="cash-amount">0</div></Label>
+    <form id="slots-form-container">
+        Slots
+        {{#each slots}}
+        <div>
+            <input name="slotName" value="{{this.name}}">
+            <input name="slotPrice" value="{{this.price}}">
+            <button name="slot-save">save</button>
+            <button name="stock">stock</button>
+        </div>
+        {{/each}}
+    </form>
+    <form id="change-form-container">
+        Change
+        <div>
+            <input id="quarters" name="quarters" value="{{this.change.quarters}}">
+            <input id="dimes" name="dimes" value="{{this.change.dimes}}">
+            <input id="nickels" name="nickels" value="{{this.change.nickels}}">
+            <button id="change-save">save</button>
+        </div>
+    </form>
+    <div>
+        <button id="cashout">Cashout</button>
+    </div>   
+    <div>
+        <button id="retire">Retire</button>
+    </div>
+    <script type="application/javascript" src="/js/vending-machine-admin.js"></script>
+</body>
+
+</html>

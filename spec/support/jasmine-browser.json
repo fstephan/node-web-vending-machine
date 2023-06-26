@@ -1,0 +1,21 @@
+{
+  "srcDir": "public/js",
+  "srcFiles": [
+    "**/*.js"
+  ],
+  "specDir": "test/browser",
+  "specFiles": [
+    "**/*[sS]pec.js","**/*[tT]est.js"
+  ],
+  "helpers": [
+    "helpers/**/*.js"
+  ],
+  "env": {
+    "stopSpecOnExpectationFailure": false,
+    "stopOnSpecFailure": false,
+    "random": true
+  },
+  "browser": {
+    "name": "firefox"
+  }
+}
